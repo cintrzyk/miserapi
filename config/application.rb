@@ -2,7 +2,7 @@ require File.expand_path('../boot', __FILE__)
 
 require "active_model/railtie"
 require "action_controller/railtie"
-# require "action_mailer/railtie"
+require "action_mailer/railtie"
 # require "action_view/railtie"
 # require "sprockets/railtie"
 
@@ -23,5 +23,16 @@ module MiserApi
     end
 
     Mongoid.raise_not_found_error = false
+
+    config.action_mailer.default_url_options = { host: Rails.application.secrets.domain }
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = false
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address:    'smtp.mandrillapp.com',
+      port:       587,
+      user_name:  Rails.application.secrets.mandrill_username,
+      password:   Rails.application.secrets.mandrill_api_key
+    }
   end
 end
