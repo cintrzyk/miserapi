@@ -39,6 +39,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    addressable (2.3.5)
     arel (5.0.0)
     atomic (1.1.15)
     awesome_print (1.2.0)
@@ -86,6 +87,10 @@ GEM
       pry-stack_explorer (~> 0.4.9)
       railties (>= 3.0, < 5.0)
     json (1.8.1)
+    launchy (2.4.2)
+      addressable (~> 2.3)
+    letter_opener (1.1.2)
+      launchy (~> 2.2)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -178,6 +183,7 @@ DEPENDENCIES
   bson_ext
   decent_exposure
   jazz_hands
+  letter_opener
   mongoid (= 4.0.0.beta1)!
   quiet_assets
   rack-cors
