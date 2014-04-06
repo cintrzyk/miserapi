@@ -8,7 +8,7 @@ set :rbenv_ruby, '2.1.1'
 
 set :pty, true
 set :sudo_prompt, ""
-set :linked_files, %w{ config/monogid.yml }
+set :linked_files, %w{ config/mongoid.yml }
 set :linked_dirs, %w{ tmp/pids log }
 set :deploy_to, "/home/#{fetch(:application)}/production"
 set :scm, :git
