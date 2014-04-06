@@ -4,9 +4,9 @@ module V1
       user = User.new new_user_params
 
       if user.save
-        render json: user
+        render json: {}, status: :created
       else
-        render json: user.errors
+        render json: { errors: user.errors }, status: :unprocessable_entity
       end
     end
 
@@ -23,7 +23,7 @@ module V1
     private
 
     def new_user_params
-      params.permit :name, :email, :password
+      params.permit :email, :password
     end
   end
 end
