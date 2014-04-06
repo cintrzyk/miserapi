@@ -11,7 +11,6 @@ gem 'decent_exposure'
 gem 'rack-cors', require: 'rack/cors'
 gem 'active_model_serializers'
 gem 'devise'
-gem 'uglifier', '>= 1.3.0'
 
 group :development do
   gem 'capistrano'
