@@ -11,7 +11,7 @@ module V1
       user = User.confirm_by_token params[:confirmation_token]
 
       if user.errors.empty?
-        render json: user, status: 201
+        render json: user, serializer: AuthSerializer, status: 201
       else
         render json: user.errors, status: :unprocessable_entity
       end
