@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.1.1'
 
 gem 'rails', '4.1.0.rc2'
+gem 'unicorn'
 
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'mongoid', '4.0.0.beta1', github: 'mongoid/mongoid'
@@ -12,6 +13,9 @@ gem 'active_model_serializers'
 gem 'devise'
 
 group :development do
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv', '~> 2.0'
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
