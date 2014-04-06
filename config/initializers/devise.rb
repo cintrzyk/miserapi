@@ -7,7 +7,7 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = '32b0d9e174139901ea77e39a2dbdd208c62d47c93ba0bb5c83d172e2254182edd830ac83ec66862f64e8fc197727d07ddb95f4f79a42a257d933a8d4be61df71'
+  config.secret_key = Rails.application.secrets.devise_secret
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
