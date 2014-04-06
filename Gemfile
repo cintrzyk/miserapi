@@ -9,6 +9,7 @@ gem 'bson_ext'
 gem 'decent_exposure'
 gem 'rack-cors', require: 'rack/cors'
 gem 'active_model_serializers'
+gem 'devise'
 
 group :development do
   gem 'spring'
