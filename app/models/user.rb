@@ -1,11 +1,13 @@
 class User
   include Mongoid::Document
-  include Concerns::AuthToken
-  include Concerns::SecurePassword
+  include Mongoid::Timestamps
+  include Concerns::Auth::Token
+  include Concerns::Auth::SecurePassword
+  include Concerns::Auth::Confirmable
 
   field :name,      type: String
   field :email,     type: String
 
-  validates :name, presence: true
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true,
+            format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
 end
