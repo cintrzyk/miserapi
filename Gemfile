@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 ruby '2.1.1'
 
 gem 'rails', '4.1.0.rc2'
-gem 'unicorn'
 
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'mongoid', '4.0.0.beta1', github: 'mongoid/mongoid'
@@ -25,4 +24,8 @@ end
 
 group :development, :test do
   gem 'jazz_hands'
+end
+
+group :production do
+  gem 'unicorn'
 end

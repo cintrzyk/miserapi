@@ -12,6 +12,7 @@ set :linked_files, %w{ config/mongoid.yml config/secrets.yml }
 set :linked_dirs, %w{ tmp/pids log }
 set :deploy_to, "/home/#{fetch(:application)}/production"
 set :scm, :git
+set :ssh_options, keys: ['config/deploy_id_rsa'] if File.exist?('config/deploy_id_rsa')
 
 namespace :deploy do
 
