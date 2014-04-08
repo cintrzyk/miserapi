@@ -10,6 +10,7 @@ gem 'decent_exposure'
 gem 'rack-cors', require: 'rack/cors'
 gem 'active_model_serializers'
 gem 'devise'
+gem 'net-ssh', '~> 2.7.0'
 
 group :test do
   gem 'rspec-rails'
