@@ -11,6 +11,10 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'active_model_serializers'
 gem 'devise'
 
+group :test do
+  gem 'rspec-rails'
+end
+
 group :development do
   gem 'capistrano'
   gem 'capistrano-rails'
