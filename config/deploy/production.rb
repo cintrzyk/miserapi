@@ -4,5 +4,6 @@ server '188.226.144.35',
   user: 'miserapi',
   roles: %w{web app db},
   ssh_options: {
-    forward_agent: true
+    forward_agent: true,
+    keys: ['config/deploy_id_rsa']
   }
