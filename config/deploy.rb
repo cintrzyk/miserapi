@@ -8,7 +8,12 @@ set :rbenv_ruby, '2.1.1'
 
 set :pty, true
 set :sudo_prompt, ""
-set :linked_files, %w{ config/mongoid.yml config/secrets.yml }
+set :linked_files, %w{
+  config/mongoid.yml
+  config/secrets.yml
+  config/unicorn.rb
+  config/unicorn_init.sh
+}
 set :linked_dirs, %w{ tmp/pids log }
 set :deploy_to, "/home/#{fetch(:application)}/production"
 set :scm, :git
@@ -16,26 +21,6 @@ set :ssh_options, keys: ['config/deploy_id_rsa'] if File.exist?('config/deploy_i
 set :tmp_dir, "/home/#{fetch(:application)}/tmp"
 
 namespace :deploy do
-
-  task :setup_config do
-    on roles(:app) do
-      sudo "ln -nfs #{current_path}/config/nginx.production.conf /etc/nginx/sites-enabled/#{fetch(:application)}"
-      sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{fetch(:application)}"
-    end
-  end
-  after :finishing, :setup_config
-
-  %w{start stop restart}.each do |command|
-    desc "#{command} unicorn server"
-    task command do
-      on roles(:app) do
-        sudo "/etc/init.d/unicorn_#{fetch(:application)} #{command}"
-        execute 'service nginx restart'
-      end
-    end
-  end
-  after :setup_config, :restart
-
   desc 'Make sure local git is in sync with remote.'
   task :check_revision do
     on roles(:web) do
@@ -47,4 +32,14 @@ namespace :deploy do
     end
   end
   before :starting, :check_revision
+
+  %w{start stop restart}.each do |command|
+    desc "#{command} unicorn server"
+    task command do
+      on roles(:app) do
+        execute "service unicorn_#{fetch(:application)} #{command}"
+      end
+    end
+  end
+  after :finishing, :restart
 end
