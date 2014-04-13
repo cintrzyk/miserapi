@@ -7,6 +7,7 @@ env:
     secure: iT04yLMajLcL76z9Z2X63jgQdyeXKhKfjYY/L+v5oxEbTKN0ov3LOe8O5iJofD7uTnS6juwemnT3vbVMWcBT6Q1O0tlAalrcqF8HWnPi5rWz7f/Y3aA/7/h1rLXfHWHigOVGoejT5BexVvPdR94ddYe+3b902axoxDc+nML2Xm8=
 after_success:
   - "openssl aes-256-cbc -k $DEPLOY_KEY -in config/deploy_id_rsa_enc_travis -d -a -out config/deploy_id_rsa"
+  - "chmod 600 config/deploy_id_rsa"
   - "eval $(ssh-agent)"
   - "ssh-add config/deploy_id_rsa"
   - "[[ $TRAVIS_BRANCH = 'master' ]] && bundle exec cap production deploy --trace"
