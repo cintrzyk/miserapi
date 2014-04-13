@@ -1,1 +1,1 @@
-# Miser API [![Build Status](https://travis-ci.org/cintrzyk/miserapi.svg?branch=master)](https://travis-ci.org/cintrzyk/miserapi)
+# Miser API [![Build Status](https://travis-ci.org/cintrzyk/miserapi.svg?branch=master)](https://travis-ci.org/cintrzyk/miserapi) [![Dependency Status](https://gemnasium.com/cintrzyk/miserapi.svg)](https://gemnasium.com/cintrzyk/miserapi) [![Code Climate](https://codeclimate.com/github/cintrzyk/miserapi.png)](https://codeclimate.com/github/cintrzyk/miserapi)
