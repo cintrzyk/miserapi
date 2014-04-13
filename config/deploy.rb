@@ -32,6 +32,14 @@ namespace :deploy do
   end
   before :starting, :check_revision
 
+  desc 'SSH keychain'
+  task :set_keychain do
+    on roles(:web) do
+      execute "eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/*_rsa)"
+    end
+  end
+  after :check_revision, :set_keychain
+
   %w{start stop restart}.each do |command|
     desc "#{command} unicorn server"
     task command do
