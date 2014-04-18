@@ -14,6 +14,10 @@ gem 'net-ssh', '~> 2.7.0'
 
 group :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+  gem 'database_cleaner'
+  gem 'mongoid-rspec'
 end
 
 group :development do
