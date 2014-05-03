@@ -1,6 +1,6 @@
 set :branch, :master
 
-server '188.226.144.35',
+server 'miserapi.cinek.co',
   user: 'miserapi',
   roles: %w{web app db},
   ssh_options: {
