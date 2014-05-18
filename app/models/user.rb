@@ -5,6 +5,8 @@ class User
   include Concerns::Auth::SecurePassword
   include Concerns::Auth::Confirmable
 
+  has_many :surveys
+
   field :name,      type: String
   field :email,     type: String
 

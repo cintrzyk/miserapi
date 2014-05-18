@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
     devise_for :users, controllers: { confirmations: 'v1/confirmations' }
     resources :users, only: [:index, :show]
+    resources :surveys, only: [:create, :index]
   end
 end
