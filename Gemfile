@@ -11,6 +11,9 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'active_model_serializers'
 gem 'devise'
 gem 'net-ssh', '~> 2.7.0'
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano-rbenv', '~> 2.0'
 
 group :test do
   gem 'rspec-rails'
@@ -21,17 +24,11 @@ group :test do
 end
 
 group :development do
-  gem 'capistrano'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv', '~> 2.0'
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
   gem 'letter_opener'
-end
-
-group :development, :test do
   gem 'jazz_hands'
 end
 
