@@ -22,7 +22,7 @@ module V1
 
     def update
       if survey.save
-        render json: survey, status: :created
+        render json: survey, status: :ok
       else
         render json: { errors: survey.errors }, status: :unprocessable_entity
       end

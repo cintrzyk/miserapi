@@ -21,12 +21,14 @@ shared_examples 'API array response with length' do |length|
 end
 
 shared_examples 'API array response with keys' do |keys|
+  keys = [keys] unless keys.is_a? Array
   it "has keys: #{keys.join(', ')}" do
     json_response.each { |h| expect_same_keys h, keys }
   end
 end
 
 shared_examples 'API response with keys' do |keys|
+  keys = [keys] unless keys.is_a? Array
   it "has keys: #{keys.join(', ')}" do
     expect_same_keys json_response, keys
   end
