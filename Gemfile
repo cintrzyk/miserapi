@@ -35,7 +35,3 @@ group :development do
   gem 'letter_opener'
   gem 'jazz_hands'
 end
-
-group :production do
-  gem 'unicorn'
-end
