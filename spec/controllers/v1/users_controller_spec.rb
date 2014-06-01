@@ -9,12 +9,14 @@ describe V1::UsersController do
 
     before { subject }
 
-    it 'returns list of all users' do
-      expect(json_response).to eq({})
-    end
+    it 'returns list of all users'
   end
 
   describe '#show' do
+    subject { get :show, id: user.id }
 
+    before { subject }
+
+    it 'returns user'
   end
 end
