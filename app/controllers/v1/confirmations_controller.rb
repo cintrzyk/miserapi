@@ -1,5 +1,5 @@
 module V1
-  class ConfirmationsController < ApiController
+  class ConfirmationsController < APIController
     def create
     end
 

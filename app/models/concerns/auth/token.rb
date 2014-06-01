@@ -9,7 +9,7 @@ module Concerns
       validates :auth_token, uniqueness: true
     end
 
-    protected
+    private
 
     def set_auth_token
       return if auth_token.present?

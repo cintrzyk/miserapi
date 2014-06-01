@@ -1,8 +1,8 @@
 module V1
-  class ApiController < ApplicationController
+  class APIController < ApplicationController
     skip_before_action :verify_authenticity_token
 
-    protected
+    private
 
     def authenticate
       authenticate_token || render_unauthorized

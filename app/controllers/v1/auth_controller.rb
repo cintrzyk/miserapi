@@ -1,5 +1,5 @@
 module V1
-  class AuthController < ApiController
+  class AuthController < APIController
     def signup
       user = User.new new_user_params
 

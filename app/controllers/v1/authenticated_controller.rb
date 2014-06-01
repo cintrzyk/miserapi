@@ -1,5 +1,5 @@
 module V1
-  class AuthenticatedController < ApiController
+  class AuthenticatedController < APIController
     before_action :authenticate
 
     decent_configuration do
