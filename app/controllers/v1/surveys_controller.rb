@@ -7,8 +7,20 @@ module V1
       render json: surveys
     end
 
+    def show
+      render json: survey
+    end
+
     def create
       survey.user = current_user
+      if survey.save
+        render json: survey, status: :created
+      else
+        render json: { errors: survey.errors }, status: :unprocessable_entity
+      end
+    end
+
+    def update
       if survey.save
         render json: survey, status: :created
       else

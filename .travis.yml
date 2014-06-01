@@ -9,6 +9,7 @@ services:
 - mongodb
 env:
   global:
+  - RAILS_ENV=test
   - secure: iT04yLMajLcL76z9Z2X63jgQdyeXKhKfjYY/L+v5oxEbTKN0ov3LOe8O5iJofD7uTnS6juwemnT3vbVMWcBT6Q1O0tlAalrcqF8HWnPi5rWz7f/Y3aA/7/h1rLXfHWHigOVGoejT5BexVvPdR94ddYe+3b902axoxDc+nML2Xm8=
   - secure: FDIMOUgwQk4ik5Ey0nPFWDjk/NGvW6BS9jfkm0xFBtqItL2hr/+QZwhiSZ6M1/6eGHydLc632xrlSfjsCFVVf3uuXAaPCaq5EdcjZH+buRAo44knw0eCkkkkmF9vME8D9F8rwlf9KsQqlQsZUKKmtfNOYh0j3t/DLYxH1hudXm8=
 before_script:
