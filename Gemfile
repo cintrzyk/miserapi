@@ -24,6 +24,7 @@ group :test do
   gem 'mongoid-rspec'
   gem 'simplecov', '0.7.1', require: false
   gem 'coveralls', require: false
+  gem 'hashie'
 end
 
 group :development do

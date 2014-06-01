@@ -117,6 +117,7 @@ GEM
     guard-rspec (4.2.9)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
+    hashie (2.0.5)
     hike (1.2.3)
     hirb (0.7.1)
     i18n (0.6.9)
@@ -285,6 +286,7 @@ DEPENDENCIES
   factory_girl_rails
   ffaker
   guard-rspec
+  hashie
   jazz_hands
   letter_opener
   mongoid!
