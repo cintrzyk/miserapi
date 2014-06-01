@@ -1,4 +1,4 @@
-ENV["RAILS_ENV"] ||= 'test'
+ENV['RAILS_ENV'] ||= 'test'
 require 'simplecov'
 SimpleCov.start 'rails' do
   coverage_dir 'public/rspec'
@@ -14,7 +14,6 @@ RSpec.configure do |config|
 
   config.before :suite do
     DatabaseCleaner.strategy = :truncation
-    DatabaseCleaner.clean_with :truncation
   end
 
   config.before :each do
