@@ -2,7 +2,10 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'coveralls'
 require 'simplecov'
 
-SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
 SimpleCov.start 'rails' do
   add_filter 'app/secrets'
   coverage_dir 'public/rspec'
