@@ -1,8 +1,12 @@
 language: ruby
 rvm:
-- 2.1.1
+  - 2.1.1
 bundler_args: --without development production --deployment
-cache: bundler
+branches:
+  only:
+    - master
+services:
+  - mongodb
 env:
   global:
     secure: iT04yLMajLcL76z9Z2X63jgQdyeXKhKfjYY/L+v5oxEbTKN0ov3LOe8O5iJofD7uTnS6juwemnT3vbVMWcBT6Q1O0tlAalrcqF8HWnPi5rWz7f/Y3aA/7/h1rLXfHWHigOVGoejT5BexVvPdR94ddYe+3b902axoxDc+nML2Xm8=
@@ -11,5 +15,6 @@ before_script:
   - "chmod 600 config/deploy_id_rsa"
   - "eval $(ssh-agent)"
   - "ssh-add config/deploy_id_rsa"
+  - "cp config/mongoid.yml.travis config/mongoid.yml"
 script:
-  - "[[ $TRAVIS_BRANCH = 'master' ]] && bundle exec cap production deploy"
+  - "[[ $TRAVIS_BRANCH = 'master' ]] && bundle exec rspec && bundle exec cap production deploy"
