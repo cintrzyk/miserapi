@@ -1,22 +1,26 @@
 require 'spec_helper'
 
 describe V1::UsersController do
-  let(:user)  { create :user }
-  let(:user2) { create :user }
+  let(:user)      { create :user }
 
   describe '#index' do
-    subject { get :index }
+    before {
+      create :user
+      api_get user, :index
+    }
 
-    before { subject }
-
-    it 'returns list of all users'
+    it_behaves_like 'API request'
+    it_behaves_like 'API array response with length', 2
+    it_behaves_like 'API array response with keys', %w(id name email)
   end
 
   describe '#show' do
-    subject { get :show, id: user.id }
+    before { api_get user, :show, id: user.id }
 
-    before { subject }
+    it_behaves_like 'API response with keys', %w(id name email)
 
-    it 'returns user'
+    it 'returns user' do
+      expect(obj_response.id).to eq user.id.to_s
+    end
   end
 end
