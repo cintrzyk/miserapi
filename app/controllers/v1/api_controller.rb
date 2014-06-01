@@ -2,11 +2,15 @@ module V1
   class APIController < ApplicationController
     skip_before_action :verify_authenticity_token
 
-    private
-
-    def authenticate
+    def authenticate!
       authenticate_token || render_unauthorized
     end
+
+    decent_configuration do
+      strategy DecentExposure::StrongParametersStrategy
+    end
+
+    private
 
     def authenticate_token
       authenticate_with_http_token do |token, options|
@@ -16,7 +20,7 @@ module V1
 
     def render_unauthorized
       self.headers['Authorization'] = %(Token miser="token")
-      render json: 'Bad credentials', status: 401
+      render json: { error: 'bad credentials' }, status: 401
     end
   end
 end
