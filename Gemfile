@@ -23,7 +23,8 @@ group :test do
   gem 'ffaker'
   gem 'database_cleaner'
   gem 'mongoid-rspec'
-  gem 'simplecov', '0.7.1'
+  gem 'simplecov', '0.7.1', require: false
+  gem 'coveralls', require: false
 end
 
 group :development do
