@@ -21,6 +21,7 @@ group :test do
   gem 'ffaker'
   gem 'database_cleaner'
   gem 'mongoid-rspec'
+  gem 'simplecov', '0.7.1'
 end
 
 group :development do
