@@ -21,4 +21,4 @@ before_script:
 script:
 - "[[ $TRAVIS_BRANCH = 'master' ]] && bundle exec rspec && bundle exec cap production deploy"
 after_success:
-- coveralls push
+- bundle exec coveralls push
