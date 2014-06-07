@@ -19,7 +19,7 @@ module V1
     end
 
     def render_unauthorized
-      self.headers['Authorization'] = %(Token miser="token")
+      self.headers['Authorization'] = %(Token miser='token')
       render json: { error: 'bad credentials' }, status: 401
     end
   end

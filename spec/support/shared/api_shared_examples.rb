@@ -4,7 +4,7 @@ shared_examples 'API request' do |status|
   end
 
   it 'returns response with JSON Content-Type header' do
-    expect(response.header['Content-Type']).to match /json/
+    expect(response.header['Content-Type']).to match Mime::JSON
   end
 end
 
